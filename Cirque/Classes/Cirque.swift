@@ -24,6 +24,7 @@ public class CirqueView : UIView {
     public var transitionSize: CGFloat = 0.05
     public var stepSize: CGFloat = 0.1
     public var lineWidth: CGFloat = 5
+    public var roundLineCorners = false
     
     fileprivate var circleRadius : CGFloat {
         return (self.bounds.size.width - lineWidth)/2
@@ -46,6 +47,9 @@ public class CirqueView : UIView {
         
         let processPath = UIBezierPath()
         processPath.lineWidth = lineWidth
+        if self.roundLineCorners {
+            processPath.lineCapStyle = .round
+        }
         
         for stepFraction in stride(from: CGFloat(0), through: 1.0, by: stepSize) {
             
@@ -74,6 +78,9 @@ public class CirqueView : UIView {
         let finalEndAngle = zeroAngle + (CGFloat(360).degreesToRadians * (startPosition + max(relativeSize, 0)))
         let processPath = UIBezierPath()
         processPath.lineWidth = lineWidth
+        if self.roundLineCorners {
+            processPath.lineCapStyle = .round
+        }
         
         color.set()
         

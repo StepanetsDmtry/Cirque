@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         
         let size: CGFloat = 110
         let cirque = CirqueView(frame: CGRect(x: view.bounds.size.width / 2 - size / 2, y: 150, width: size, height: size))
-        
+        cirque.roundLineCorners = true
         cirque.dataPoints = [RankingGroup.match(value: 0.3), RankingGroup.achievements(value: 0.2), RankingGroup.votes(value: 0.2)]
         
         view.addSubview(cirque)
